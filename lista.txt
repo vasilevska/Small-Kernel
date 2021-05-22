@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+struct Elem { int broj; Elem* sled; };
+
+Elem* citaj() {
+	Elem* tek = nullptr, *prvi = nullptr;
+
+	while (true) {
+		int broj;
+		cin >> broj;
+		if (broj == 9999) break;
+		Elem* novi = new Elem;
+		novi->broj = broj;
+		novi->sled = nullptr;
+
+		tek = (prvi == nullptr ? prvi : tek->sled) = novi;
+	}
+
+	return prvi;
+}
+
+void pisi (Elem* prvi) {
+	while (prvi) {
+		cout << prvi->broj << " ";
+		prvi = prvi->sled;
+	}
+}
+
+void brisi(Elem* prvi) {
+	while (prvi) {
+		Elem* stari = prvi;
+		prvi = prvi->sled;
+		delete stari;
+	}
+}
+int main() {
+	Elem* lista = citaj();
+	pisi(lista);
+	brisi(lista);
+}

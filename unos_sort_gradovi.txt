@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const int MAX_GRAD = 100;
+
+int main() {
+	int br = 0;
+	string* gradovi = new string[MAX_GRAD];
+	do {
+		string grad;
+		getline(cin, grad); //uzima jedan ceo red iz prvog parametra
+		if (grad == "") break;
+		int i;
+		for (i = br-1; i >= 0 ; i--)
+		{
+			if (gradovi[i] > grad) {
+				gradovi[i + 1] = gradovi[i];
+			}
+			else {
+				break;
+			}
+		}
+		gradovi[i + 1] = grad;
+		br++;
+	} while (br <= MAX_GRAD);
+
+	//samo onoliko dealocicrano koliko je uneto
+	string* pom = new string[br];
+	for (int i = 0; i < br; i++)
+	{
+		pom[i] = gradovi[i];
+	}
+	delete[] gradovi;
+	gradovi = pom;
+
+	for (int i = 0; i < br; i++)
+	{
+		cout << gradovi[i] << endl;
+	}
+	delete[] gradovi;
+}
