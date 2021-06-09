@@ -12,6 +12,7 @@ private:
 	ID myID;
 	Time timeSlice;
 	Time time;
+	Thread thread;
 
 	unsigned* stack;  							
 	unsigned ss;     		   

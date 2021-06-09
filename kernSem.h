@@ -1,3 +1,4 @@
+#include "semaphor.h"
 #ifndef _kernSem_h_
 #define _kernSem_h_
 
