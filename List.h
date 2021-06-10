@@ -1,8 +1,11 @@
 #ifndef _List_h_
 #define _List_h_
+#include "iterator"
+
+using namespace std;
 
 template <class T> class List {
-private: 
+public:
 	struct Node {
 		T data;
 		Node* next;
@@ -14,9 +17,9 @@ private:
 		}
 	};
 
+private:
 	Node* front;
 	Node* back;
-
 	volatile int count;
 
 public:
@@ -28,12 +31,15 @@ public:
 	~List() {
 		deleteList();
 	}
+	Node* getFront() { return front; }
 	void addFront(T dat);
 	void addBack(T dat);
 	T removeFront(T dat);
 	T removeBack(T dat);
-	int count() { return n; }
+	int count() { return count; }
 	void deleteList();
+
+	
 
 };
 
@@ -43,38 +49,38 @@ public:
 template<class T>
 inline void List<T>::addFront(T dat)
 {
-	if (!n) {
+	if (!count) {
 		front = back = new Node(dat, nullptr, nullptr);
 	}
 	else {
 		front = new Node(dat, front, nullptr);
-		front->next->prev = front;
+		front->next->previous = front;
 	}
-	n++
+	count++
 }
 
 template<class T>
 inline void List<T>::addBack(T dat)
 {
-	if (!n) {
+	if (!count) {
 		front = back = new Node(dat, nullptr, nullptr);
 	}
 	else {
 		back = new Node(dat, nullptr, back);
-		back->prev->next = back;
+		back->previous->next = back;
 	}
-	n++;
+	count++;
 }
 
 template<class T>
 inline T List<T>::removeFront(T dat)
 {
-	if (!n) return nullptr;
+	if (!count) return nullptr;
 	Node* cur = front;
-	n--;
+	count--;
 	front = front->next;
-	if (!n) back = nullptr;
-	else front->prev = nullptr;
+	if (!count) back = nullptr;
+	else front->previous = nullptr;
 	
 	T dat = cur->data;
 	delete cur;
@@ -84,11 +90,11 @@ inline T List<T>::removeFront(T dat)
 template<class T>
 inline T List<T>::removeBack(T dat)
 {
-	if (!n) return nullptr;
+	if (!count) return nullptr;
 	Node* cur = back;
-	n--;
-	back = back->prev;
-	if (!n) front = nullptr;
+	count--;
+	back = back->previous;
+	if (!count) front = nullptr;
 	else back->next = nullptr;
 	T dat = cur->data;
 	delete cur;
@@ -98,16 +104,16 @@ inline T List<T>::removeBack(T dat)
 template<class T>
 inline void List<T>::deleteList()
 {
-	if (!n) return;
+	if (!count) return;
 	else {
 		Node* cur = front;
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < count; i++) {
 			Node* tmp = cur;
 			cur = cur->next;
 			delete tmp;
 		}
 		front = back = nullptr;
-		n = 0;
+		count = 0;
 	}
 }
 
