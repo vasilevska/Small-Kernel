@@ -1,2 +1,15 @@
-﻿  source.cpp
-  vezbe.vcxproj -> C:\Users\DELL\Documents\Projects\OO1\Debug\vezbe.exe
+﻿  main.cpp
+  PCB.cpp
+  semaphor.cpp
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.cpp(5,36): error C2027: use of undefined type 'KernelSem'
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.h(5): message : see declaration of 'KernelSem'
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.cpp(11,15): warning C4150: deletion of pointer to incomplete type 'KernelSem'; no destructor called
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.h(5): message : see declaration of 'KernelSem'
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.cpp(16,15): error C2027: use of undefined type 'KernelSem'
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.h(5): message : see declaration of 'KernelSem'
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.cpp(21,15): error C2027: use of undefined type 'KernelSem'
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.h(5): message : see declaration of 'KernelSem'
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.cpp(26,15): error C2027: use of undefined type 'KernelSem'
+C:\Users\DELL\Documents\Projects\OO1\vezbe\semaphor.h(5): message : see declaration of 'KernelSem'
+  thread.cpp
+  Generating Code...

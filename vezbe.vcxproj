@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kernSem.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="PCB.h" />
     <ClInclude Include="semaphor.h" />
     <ClInclude Include="thread.h" />
